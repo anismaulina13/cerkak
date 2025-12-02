@@ -1,0 +1,164 @@
+
+:root{
+  --bg:#0f0f12;
+  --card:#0f1720;
+  --muted:#98a2b3;
+  --accent:#7b61ff;
+  --accent-2:#22c1c3;
+  --text:#e6eef8;
+  --glass: rgba(255,255,255,0.03);
+  --radius:14px;
+  --maxwidth:1000px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh}
+body{
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg) 0%, #06121a 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+  padding:32px;
+  display:flex;
+  justify-content:center;
+}
+
+.site{
+  width:100%;
+  max-width:var(--maxwidth);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:18px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:260px 1fr;
+  min-height:100vh;
+}
+
+.sidebar{
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  padding:24px;
+  border-right:1px solid rgba(255,255,255,0.03);
+}
+.brand{
+  font-weight:700;
+  letter-spacing:0.6px;
+  font-size:20px;
+  margin-bottom:18px;
+}
+.brand .muted{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:6px}
+.nav{
+  margin-top:18px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.nav a{
+  text-decoration:none;
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:10px;
+  display:block;
+  font-weight:600;
+  transition:all .18s ease;
+}
+.nav a:hover{transform:translateX(6px); background:var(--glass)}
+.nav a.active{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#051019; box-shadow:0 6px 20px rgba(123,97,255,0.12)}
+
+.main{
+  padding:28px;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+.header h1{font-size:20px}
+.header p{color:var(--muted);font-size:13px}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.5);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.poster{
+  width:100%;
+  height:280px;
+  border-radius:12px;
+  background-size:cover;
+  background-position:center;
+  margin-bottom:14px;
+  position:relative;
+  overflow:hidden;
+}
+.poster .overlay{
+  position:absolute;left:0;right:0;bottom:0;padding:12px;background:linear-gradient(0deg, rgba(2,6,23,0.7), rgba(2,6,23,0.0));
+  color:var(--text);
+}
+
+.cerpen-title{font-size:22px;margin-bottom:8px}
+.cerpen-meta{color:var(--muted);font-size:13px;margin-bottom:16px}
+.cerpen-body{white-space:pre-wrap;font-size:16px;color:var(--text);line-height:1.8}
+
+.comments{
+  margin-top:18px;
+}
+.comment{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:12px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.02);
+  margin-bottom:10px;
+}
+.avatar{
+  width:46px;height:46px;border-radius:50%;flex:0 0 46px;background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:#051019;
+}
+.comment .meta{font-weight:700;font-size:14px}
+.comment .text{color:var(--muted);font-size:14px;margin-top:6px}
+
+.comment-form{
+  margin-top:16px;
+  display:grid;
+  gap:8px;
+}
+.input, textarea{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.04);
+  color:var(--text);
+  resize:vertical;
+}
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#051019;
+  font-weight:700;
+  text-decoration:none;
+  border:0;
+  cursor:pointer;
+}
+
+.footer{color:var(--muted);font-size:13px;margin-top:22px;text-align:center}
+
+@media (max-width:900px){
+  .site{grid-template-columns:1fr; padding:12px}
+  .sidebar{display:flex;flex-direction:row;gap:10px;overflow:auto;padding:12px}
+  .nav{flex-direction:row}
+  .nav a{white-space:nowrap}
+  .main{padding:16px}
+}
